@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Laborelief</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="Laborelief_files/bootstrap.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="font-awesome/css/font-awesome.css"> 
+<link href="Laborelief_files/style.css" rel="stylesheet" type="text/css">
+<script src="js/jquery-1.10.2.min.js"></script> 
+<script src="js/jquery.toaster.js"></script> 
+<script src="js/bootstrap.min.js"></script>
+<!---- start-smoth-scrolling---->
+<script type="text/javascript" src="Laborelief_files/move-top.js"></script>
+<script type="text/javascript" src="Laborelief_files/easing.js"></script>
+<script src= "js/angular.js"></script>
+<script src= "js/ng-table.min.js"></script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+        });
+    });
+		</script> 
+</head>
+<body>
+<!--start-header-->
+	<div class="header" id="home">
+		<div class="container">
+			<div class="head">
+			<div class="logo">
+				<a href="http://127.0.0.1:9092"><img src="Laborelief_files/logo.png" alt=""></a>
+			</div>
+			<div class="navigation">
+				  <span class="menu fa fa-reorder fa-1x" id="none"></span> 
+					<ul class="navig">
+						<li><a href="http://127.0.0.1:9092/"> 主页</a>&nbsp;</li>
+						<li><i class="fa fa-flask fa-1x"> </i><a href="http://127.0.0.1:9092/#Advantages">特点</a>&nbsp;</li>
+						<li><i class="fa fa-male fa-1x"> </i> <a href="http://127.0.0.1:9092/#Howitworks">工作原理</a>&nbsp;</li>  
+						<li><i class="fa  fa-question-circle fa-1x"> </i><a href="http://127.0.0.1:9092/#FAQS">FAQS</a>&nbsp;</li>
+						<li><i class="fa  fa-gear fa-1x"> </i><a href="http://127.0.0.1:9092/#Science">技术说明</a>&nbsp;</li>
+						<li><i class="fa fa-stethoscope fa-1x"> </i><a href="http://127.0.0.1:9092/#Testimonials">用户评价</a>&nbsp;</li>
+						<li><i class="fa fa-mobile fa-1x"> </i><a href="http://127.0.0.1:9092/#AsktheMidwife">助产士问答</a>&nbsp;</li>
+						<li><i class="fa fa-envelope-o fa-1x"> </i><a href="http://127.0.0.1:9092/#Contact">联系我们</a>&nbsp;</li>
+						<li><i class="fa  fa-shopping-cart fa-1x"> </i><a href="http://127.0.0.1:9092/buy.html" class="active">购买</a>&nbsp;</li>
+					</ul>
+			</div>
+				<div class="clearfix"></div>
+			</div> 
+			</div>
+		</div>	
+ <script>
+     $("span.menu").click(function () {
+         $(" ul.navig").slideToggle("slow", function () {
+         });
+     });
+		 </script> 
+					<script src="Laborelief_files/classie.js"></script>
+					<script src="Laborelief_files/uisearch.js"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+	<!--//search-scripts-->
+	<!--start-single-->
+  <div class="row" ng-app="myApp">
+        <div class="col-md-1">
+        </div>
+        <div class="well page col-md-10" ng-controller="tableController">
+        
+			<form>
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-addon">
+							<i class="fa fa-search"></i>
+						</div>
+						<input type="text" class="form-control"
+							placeholder="Search" ng-model="searchType">
+					</div>
+				</div>
+			</form>
+			
+			<table id="table"
+				class="table table-bordred table-striped animate-repeat" ng-table="table">
+				<thead>
+					<tr>
+						<th ng-click="sortType='id'; sortReverse = !sortReverse" style="width: 10%" align="center" class="text-center">订单号</th>
+						<th ng-click="sortType='goodid'; sortReverse = !sortReverse" style="width: 5%" align="center" class="text-center">产品号</th>
+						<th ng-click="sortType='goodcount'; sortReverse = !sortReverse" style="width: 5%" align="center" class="text-center">个数</th>
+						<th style="width: 10%" align="center" class="text-center">描述</th>
+						<th ng-click="sortType='custel'; sortReverse = !sortReverse" style="width: 10%" align="center" class="text-center">联系电话</th>
+						<th ng-click="sortType='cusaddr'; sortReverse = !sortReverse" style="width: 20%" align="center" class="text-center">收货地址</th>
+						<th ng-click="sortType='status'; sortReverse = !sortReverse" style="width: 10%" align="center" class="text-center">订单状态</th>
+						<th ng-click="sortType='sum'; sortReverse = !sortReverse" style="width: 10%" align="center" class="text-center">金额</th>
+						<th ng-click="sortType='createtime'; sortReverse = !sortReverse" style="width: 10%" align="center" class="text-center">创建时间</th>
+						<th ng-click="sortType='paytime'; sortReverse = !sortReverse" style="width: 10%" align="center" class="text-center">付款时间</th>
+					</tr>
+				</thead>
+				<tbody>
+					<h3>全部订单</h3>
+					<tr ng-repeat="o in orders | orderBy:sortType:sortReverse | filter:searchType">
+						<td class="ng-binding" align="center"><a href="#" ng-click="showOrderDetail(o.index)">{{o.id}}</td>
+						<td class="ng-binding" align="center">{{o.goodid}}</td>
+						<td class="ng-binding" align="center">{{o.goodcount}}</td>
+						<td class="ng-binding" align="center">{{o.desc}}</td>
+						<td class="ng-binding" align="center">{{o.custel}}</td>
+						<td class="ng-binding" align="center">{{o.cusaddr}}</td>
+						<td class="ng-binding" align="center"">
+						    <div class="dropdown">
+						    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+						    {{o.showstatus}}
+						    <span class="caret"></span>
+						    </button>
+						    <ul class="dropdown-menu" role="menu">
+                                <li><a href="#" ng-repeat="s in statusTypes" ng-click="fnUpdateOrderStatus(o.index,s.id)" >{{s.status}}</a></li>
+                            </ul>
+                            </div>
+						</td>
+						<td class="ng-binding" align="center">{{o.sum}}</td>
+						<td class="ng-binding" align="center">{{o.createtime}}</td>
+						<td class="ng-binding" align="center">{{o.paytime}}</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<div id="orderdetail" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" style="color:#000000">订单详情</h4>
+                        </div>
+                        <div class="modal-body">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="subject">收货人:</label>
+
+								<div class="col-sm-8 div-inline">
+									<p>{{selectorder.CusName}}</p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="subject">手机号:</label>
+
+								<div class="col-sm-8 div-inline">
+									<p>{{selectorder.CusTel}}</p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="subject">收货地址:</label>
+
+								<div class="col-sm-8 div-inline">
+									<p>{{selectorder.CusAddr}}</p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="subject">产品编号:</label>
+
+								<div class="col-sm-8 div-inline">
+									<p>{{selectorder.GoodID}}</p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="subject">产品数量:</label>
+
+								<div class="col-sm-8 div-inline">
+									<p>{{selectorder.GoodCnt}}</p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="subject">快递单号:</label>
+
+								<div class="col-sm-8 div-inline">
+									<input type="text" class="form-control" id="subject"
+										ng-model="selectorder.ShippingNo" placeholder="输入运货单号">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="assginee">快递公司:</label>
+
+								<div class="col-sm-8 div-inline">
+									<select class="col-sm-12 div-inline" style="color: #000000"
+										ng-model="selectorder.ShippingCom">
+										<option style="color: #000000" ng-repeat="com in coms"
+											value={{com.id}}>{{com.name}}</option>
+									</select>
+								</div>
+							</div>
+						</div>
+                        <br><br><br><br><br>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">退出</button>
+                            <button type="button" class="btn btn-primary" ng-click="shipping()">发货</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+		</div>
+        <div class="col-md-1">
+        </div>
+    </div>
+	<!--contact-end-->
+	<!--footer-starts--> 
+	<div class="footer">
+		<div class="container">
+			<div class="footer-text">
+				<div class="col-md-6 footer-left">
+					<ul>
+						<li><a href="#"><i class="fa fa-facebook-square fa-4x" style="color:#ca5490"></i></a></li>
+						<li><a href="#"><i class="fa  fa-tumblr-square fa-4x" style="color:#ca5490"></i></a></li>
+						<li><a href="#"><i class="fa  fa-google-plus-square fa-4x" style="color:#ca5490"></i></a></li>
+						<li><a href="#"><i class="fa  fa-linkedin-square fa-4x" style="color:#ca5490"></i></a></li>
+					</ul>
+				</div>
+				<div class="col-md-6 footer-left">
+					<p>Copyright © 2009-2015 Laborelief. All Rights Reserved. <a target="_blank" href="#"></a></p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<script type="text/javascript">
+		    $(document).ready(function () {
+		        /*
+		        var defaults = {
+		        containerID: 'toTop', // fading element id
+		        containerHoverID: 'toTopHover', // fading element hover id
+		        scrollSpeed: 1200,
+		        easingType: 'linear' 
+		        };
+		        */
+
+		        $().UItoTop({ easingType: 'easeOutQuart' });
+
+		    });
+								</script>
+		<a href="#home" id="toTop" class="scroll" style="display: none;"><span id="toTopHover"></span> <span id="toTopHover" style="opacity: 1;"> </span></a>
+	</div>
+	<!--footer-end-->					 
+
+<a href="#" id="toTop">To Top</a>
+<script>
+var app = angular.module('myApp', ['ngTable']);
+app.controller('tableController', function($scope, $http, $window) {
+	    $scope.orders= []
+	    $scope.sortReverse = false
+	    $scope.sortType = 'createtime'
+	    $scope.searchType=''
+	    $scope.statusTypes=[{id:0,status:"新建"},
+	                       {id:1,status:"删除"},
+	                       {id:3,status:"已发货"},
+	                       {id:4,status:"支付失败"},
+	                       {id:5,status:"支付成功"},
+	                       {id:6,status:"完成"},
+	                       {id:7,status:"撤消"},
+	                       {id:8,status:"退款"},
+	                       {id:9,status:"无效"}];
+	    $scope.coms=[{id:"shentong",name:"申通快递"},
+	                 {id:"ems",name:"EMS"},
+	                 {id:"shunfeng",name:"顺丰速运"},
+	                 {id:"yunda",name:"韵达快递"},
+	                 {id:"yuantong",name:"圆通速递"},
+	                 {id:"zhongtong",name:"中通快递"}];
+	    
+	    if ($window.sessionStorage.token) {
+
+		} else {
+			$window.location.href = '/index.html';
+		}
+	    
+		var config = {
+			headers : {
+				'Authorization' : '',
+				'Accept' : 'application/json',
+			}
+		};
+		if ($window.sessionStorage.token) {
+			//config.headers.Authorization = $window.sessionStorage.token;
+			$http.defaults.headers.common.Authorization = $window.sessionStorage.token;
+		}
+
+		$http.get("http://127.0.0.1:9092/order").success(
+				function(data, status, headers, config) {
+				    var order_data =
+				    {
+				        "id": "default",
+				        "goodid": "",
+				        "goodcount": 0,
+				        "desc": "Test order",
+				        "cusname":"",
+				        "custel": 0,
+				        "cusaddr":"",
+				        "status":0,
+				        "createtime":"",
+				        "paytime":"",
+				        "sum":0.0,
+				        "showstatus":"",
+				        "index":0
+				    };
+				    var i = 0, len = data.length
+				    for(i;i<len;i++){
+				    	order_data.index=i
+				    	order_data.id = data[i].id
+				    	order_data.goodid = data[i].goodId
+				    	order_data.goodcount = data[i].goodcount
+				    	order_data.desc = data[i].desc
+				    	order_data.cusname = data[i].cusname
+				    	order_data.custel = data[i].custel
+				    	order_data.cusaddr = data[i].cusaddr
+				    	order_data.status = data[i].status
+				    	order_data.showstatus = $scope.fnStatusCodeToStatusStr(order_data.status)
+				    
+				    	order_data.createtime = data[i].createtime.substr(0, 19)
+				    	order_data.paytime = data[i].paytime.substr(0, 19)
+			
+	                    if (order_data.paytime == "0001-01-01T00:00:00") {
+							order_data.paytime = "未付款"
+						}
+						order_data.sum = data[i].sum
+						$scope.orders[i] = angular.copy(order_data)
+					}
+					//$scope.orders = data
+					
+				}).error(function(data, status, headers, config) {
+			$window.location.href = '/index.html';
+		});
+		
+		$scope.fnStatusCodeToStatusStr = function(status){
+			var showstatus = ""
+	        if(status==2){
+	        	showstatus = "待付款"
+	        }
+	        else if(status==0){
+	        	showstatus = "新订单"
+	        }
+	        else if(status==1){
+	        	showstatus = "删除"
+	        }
+	        else if(status==3){
+	        	showstatus = "已发货"
+	        }
+            else if(status==4){
+	        	showstatus = "付账失败"
+	        }
+            else if(status==5){
+	        	showstatus = "付账成功"
+	        }
+            else if(status==6){
+	        	showstatus = "完成"
+	        }
+            else if(status==7){
+	        	showstatus = "撤消"
+	        }
+            else if(status==8){
+	        	showstatus = "退款"
+	        }
+            else if(status==9){
+	        	showstatus = "无效"
+	        }
+	        return showstatus;
+		}
+		
+		$scope.showOrderDetail = function(orderidex){
+			$scope.selectorder = {
+					"Id":"",
+					"Index":"",
+					"CusName":"",
+					"CusTel":"",
+					"CusAddr":"",
+					"GoodID":"",
+					"GoodCnt":"",
+					"ShippingNo":"",
+					"ShippingCom":""
+			}
+			$scope.selectorder.Id = $scope.orders[orderidex].id
+			$scope.selectorder.Index = orderidex
+			$scope.selectorder.CusName = $scope.orders[orderidex].cusname
+			$scope.selectorder.CusTel = $scope.orders[orderidex].custel
+			$scope.selectorder.CusAddr = $scope.orders[orderidex].cusaddr
+			$scope.selectorder.GoodID = $scope.orders[orderidex].goodid
+			$scope.selectorder.GoodCnt = $scope.orders[orderidex].goodcount
+			$scope.selectorder.ShippingNo = ""
+			$scope.selectorder.ShippingCom = ""
+			$('#orderdetail').modal('show');
+		}
+		
+		$scope.shipping = function(){
+			$http.put("http://127.0.0.1:9092/order/shipping/"+$scope.selectorder.Id+"/"+$scope.selectorder.ShippingNo+"/"+$scope.selectorder.ShippingCom)
+			.success(function(data, status, headers, config) {
+				$scope.orders[$scope.selectorder.Index].status = 3;
+				$scope.orders[$scope.selectorder.Index].showstatus = $scope.fnStatusCodeToStatusStr(3)
+				$scope.orders[$scope.selectorder.Index].paytime = data.paytime.substr(0, 19)
+				
+                if ($scope.orders[$scope.selectorder.Index].paytime == "0001-01-01T00:00:00") {
+                	$scope.orders[$scope.selectorder.Index].paytime = "未付款"
+				}
+			})
+			.error(function(data, status, headers, config) {
+                priority = 'danger';
+                title = 'Failed';
+                message = data.message;
+                $.toaster({priority: priority, title: title, message: message});
+			});
+			$('#orderdetail').modal('hide');
+		}
+		
+		$scope.fnUpdateOrderStatus = function(orderidex,newstatus){
+			if($scope.orders[orderidex].status != newstatus && newstatus != 3){
+				$http.put("http://127.0.0.1:9092/order/updatestatus/"+$scope.orders[orderidex].id+"/"+$scope.orders[orderidex].status+"/"+newstatus)
+				.success(function(data, status, headers, config) {
+					$scope.orders[orderidex].status = newstatus;
+					$scope.orders[orderidex].showstatus = $scope.fnStatusCodeToStatusStr(newstatus)
+					$scope.orders[orderidex].paytime = data.paytime.substr(0, 19)
+					
+                    if ($scope.orders[orderidex].paytime == "0001-01-01T00:00:00") {
+                    	$scope.orders[orderidex].paytime = "未付款"
+					}
+				})
+				.error(function(data, status, headers, config) {
+                    priority = 'danger';
+                    title = 'Failed';
+                    message = data.message;
+                    $.toaster({priority: priority, title: title, message: message});
+				});
+			}
+			else if (newstatus == 3)
+			{
+				$scope.showOrderDetail(orderidex)
+			}
+		}
+	});
+</script>
+</body>
+</html>

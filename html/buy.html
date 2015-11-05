@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Laborelief</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="Laborelief_files/bootstrap.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="font-awesome/css/font-awesome.css"> 
+<link href="Laborelief_files/style.css" rel="stylesheet" type="text/css">
+<script src="js/jquery-1.10.2.min.js"></script> 
+<script src="js/jquery.toaster.js"></script> 
+<script src="js/bootstrap.min.js"></script>
+<!---- start-smoth-scrolling---->
+<script type="text/javascript" src="Laborelief_files/move-top.js"></script>
+<script type="text/javascript" src="Laborelief_files/easing.js"></script>
+<script src= "js/angular.js"></script>
+<script src= "js/angular-uuid.js"></script>
+<script src= "js/angular-sanitize.js"></script>
+</head>
+<body>
+<!--start-header-->
+	<div class="header" id="home">
+		<div class="container">
+			<div class="head">
+			<div class="logo">
+				<a href="http://127.0.0.1:9092"><img src="Laborelief_files/logo.png" alt=""></a>
+			</div>
+			<div class="navigation">
+				  <span class="menu fa fa-reorder fa-1x" id="none"></span> 
+					<ul class="navig">
+						<li><a href="http://127.0.0.1:9092/"> 主页</a>&nbsp;</li>
+						<li><i class="fa fa-flask fa-1x"> </i><a href="http://127.0.0.1:9092/#Advantages">特点</a>&nbsp;</li>
+						<li><i class="fa fa-male fa-1x"> </i> <a href="http://127.0.0.1:9092/#Howitworks">工作原理</a>&nbsp;</li>  
+						<li><i class="fa  fa-question-circle fa-1x"> </i><a href="http://127.0.0.1:9092/#FAQS">FAQS</a>&nbsp;</li>
+						<li><i class="fa  fa-gear fa-1x"> </i><a href="http://127.0.0.1:9092/#Science">技术说明</a>&nbsp;</li>
+						<li><i class="fa fa-stethoscope fa-1x"> </i><a href="http://127.0.0.1:9092/#Testimonials">用户评价</a>&nbsp;</li>
+						<li><i class="fa fa-mobile fa-1x"> </i><a href="http://127.0.0.1:9092/#AsktheMidwife">助产士问答</a>&nbsp;</li>
+						<li><i class="fa fa-envelope-o fa-1x"> </i><a href="http://127.0.0.1:9092/#Contact">联系我们</a>&nbsp;</li>
+						<li><i class="fa  fa-shopping-cart fa-1x"> </i><a href="#" class="active">购买</a>&nbsp;</li>
+					</ul>
+			</div>
+				<div class="clearfix"></div>
+			</div> 
+			</div>
+		</div>	
+	<!--//search-scripts-->
+	<!--start-single-->
+	<div class="single" ng-app="myApp">
+		<div class="container">
+			<div class="single-top">
+				<div class="col-md-8 single-left">
+					<h3 class="sngl">Shop - Free shipping worldwide</h3>
+					<span>
+                   <a href="#"> Laborelief</a> provides a natural, affordable, and proven solution to help reduce both pain and time during labor. <br>
+<a href="#">Laborelief</a> can be used in conjunction with all other pain relief methods and drugs used during Labor. <br>
+95% of all women that have used  <a href="#">Laborelief</a> said they would recommend it and use it again. 
+                     </span>
+					<a href="#"><img src="Laborelief_files/lobor.jpg" class="width700" alt=""></a>
+                    <h5 style="font-weight:800;font-size:26px;color:#693f7c">$179.99 / QUAD PACK</h5>
+					<h5>Order your Laborelief now for your own peace of mind</h5> 
+					 <div class="comments">
+						<h3>Where do you ship laborelief?</h3>
+						 <p>Worldwide</p>	 
+						 <br>  <br> 
+						<h3>How much does delivery cost?</h3>
+						 <p>Delivery worldwide is free!</p>	 
+						 <br>  <br> 
+						<h3>How long does delivery take?</h3>
+						 <p><a href="#"> Laborelief</a> makes the utmost effort to 
+dispatch your order within one business day of receiving your order. 
+Delivery typically takes 5-10 business days. Remember to order your 
+laborelief early and put it in your bag ready for your trip to the 
+hospital.</p>	 
+						 <br>  <br> 
+						<h3>Returns and refunds</h3>
+						 <p><a href="#"> Laborelief</a> will accept returns in the original untempered packaging up to 30 days for a full refund.</p>	 
+						 <br>  <br> 
+						<h3>What happens if my laborelief is lost in transit?</h3>
+						 <p>We fully guarantee delivery and if for any reason your 
+laborelief does not arrive please contact us and we will ship you a 
+replacement immediately.</p>	 
+						 <br>  <br> 
+						<h3>How do I contact you?</h3>
+						 <p>You can call or email to connect with us. Emails are typically responded to within one business day. </p>	 
+						 <br> 
+					 </div>  
+				</div>
+				<div class="col-md-4 single-right" ng-controller="customersCtrl">
+					<div class="Categories">
+						<h4>Buy Now</h4>
+							<div class="reply">
+								<p>客户名<br>
+								<input type="text" class="form-control" ng-model="name" placeholder="输入您的名字" required>
+								<span style="color:red" ng-show="name.$dirty && name.$invalid">
+								<span ng-show="name.$error.required">请输入您的名字以便送货联系</span>
+								</span>
+								</p>
+								<p>手机号<br>
+								<input type="text" class="form-control" ng-model="tel" placeholder="输入您的手机号码" required>
+								<span style="color:red" ng-show="tel.$dirty && tel.$invalid">
+								<span ng-show="tel.$error.required">请输入您的手机号以便送货联系</span>
+								</span>
+								</p>
+								
+								<p>商品类型<br>
+								<select class="col-sm-12 div-inline" ng-model="goodid" required>
+								     <option ng-repeat="g in goodinfos" value={{g.id}}>{{g.desc+"  "+g.fee+"元"}}</option>
+								</select> 
+								</p>
+								
+								<p>购买数量<br>
+								<input type="number" class="form-control" ng-model="count" value="1" min="1">
+								<span style="color:red" ng-show="count.$dirty && count.$invalid">
+								<span ng-show="count.$error.required">请输入您想要购买的数量</span>
+								</span>
+								</p>
+								<p>收货地址<br>
+								<input type="text" class="form-control" ng-model="addr" placeholder="输入您的收货地址" required>
+								<span style="color:red" ng-show="addr.$dirty && addr.$invalid">
+								<span ng-show="addr.$error.required">请输入您的收货地址</span>
+								</span>
+								<input style="width:100%" value="购买" ng-click="selectPayType()" type="submit">
+						</div>
+ 						<div ng-bind-html="trusthtml"></div>
+						<script ng-bind="trustscript"></script>
+						
+					</div> 
+					
+			<div id="new_dialog" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" style="color:#000000">支付方式</h4>
+                        </div>
+                        <div class="modal-body">
+                                       <table>
+                 <tbody><tr>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="directPay" type="radio"><img src="resource/alipay_1.gif" border="0"></td>
+                 </tr>
+                 <tr>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="ICBCB2C" type="radio"><img src="resource/ICBC_OUT.gif" border="0"></td>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="CMB" type="radio"><img src="resource/CMB_OUT.gif" border="0"></td>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="CCB" type="radio"><img src="resource/CCB_OUT.gif" border="0"></td>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="BOCB2C" type="radio"><img src="resource/BOC_OUT.gif" border="0"></td>
+                 </tr>
+                 <tr>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="ABC" type="radio"><img src="resource/ABC_OUT.gif" border="0"></td>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="COMM" type="radio"><img src="resource/COMM_OUT.gif" border="0"></td>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="SPDB" type="radio"><img src="resource/SPDB_OUT.gif" border="0"></td>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="GDB" type="radio"><img src="resource/GDB_OUT.gif" border="0"></td>
+                 </tr>
+                 <tr>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="CITIC" type="radio"><img src="resource/CITIC_OUT.gif" border="0"></td>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="CEBBANK" type="radio"><img src="resource/CEB_OUT.gif" border="0"></td>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="CIB" type="radio"><img src="resource/CIB_OUT.gif" border="0"></td>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="SDB" type="radio"><img src="resource/SDB_OUT.gif" border="0"></td>
+                 </tr>
+                 <tr>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="CMBC" type="radio"><img src="resource/CMBC_OUT.gif" border="0"></td>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="HZCBB2C" type="radio"><img src="resource/HZCB_OUT.gif" border="0"></td>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="SHBANK" type="radio"><img src="resource/SHBANK_OUT.gif" border="0"></td>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="NBBANK " type="radio"><img src="resource/NBBANK_OUT.gif" border="0"></td>
+                 </tr>
+                 <tr>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="SPABANK" type="radio"><img src="resource/SPABANK_OUT.gif" border="0"></td>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="BJRCB" type="radio"><img src="resource/BJRCB_OUT.gif" border="0"></td>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="ICBCBTB" type="radio"><img src="resource/ENV_ICBC_OUT.gif" border="0"></td>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="CCBBTB" type="radio"><img src="resource/ENV_CCB_OUT.gif" border="0"></td>
+                 </tr>
+                 <tr>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="SPDBB2B" type="radio"><img src="resource/ENV_SPDB_OUT.gif" border="0"></td>
+                   <td><input ng-model="alipaytype" name="pay_bank" value="ABCBTB" type="radio"><img src="resource/ENV_ABC_OUT.gif" border="0"></td>
+				   <td><input ng-model="alipaytype" name="pay_bank" value="PSBC-DEBIT" type="radio"><img src="resource/PSBC_OUT.gif" border="0"></td>
+				   <td><input ng-model="alipaytype" name="pay_bank" value="fdb101" type="radio"><img src="resource/FDB_OUT.gif" border="0"></td>
+                 </tr>
+               </tbody></table>
+                        </div>
+                        <br><br><br><br><br>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">退出</button>
+                            <button type="button" class="btn btn-primary" ng-click="newOrder()">确认</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+					
+						<div class="recent">
+							<h4>What is Laborelief?</h4>
+							<div class="recent-one">
+								<a href="#"><img src="Laborelief_files/recent-1.jpg" alt=""></a>
+								<span>Watch to find out more about Laborelief and what mothers who have used it already have to say about it.</span> 
+									<p> See testimonials of doctors, midwives and mothers who used Laborelief as the only <a href="#"> Laborelief</a>
+ relief at childbirth. Learn how you can manage your upcoming birth 
+pains and in the most natural, easy secure and simple way there is!</p>
+							</div> 
+						</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div> 
+	<!--contact-end-->
+	<!--footer-starts--> 
+	<div class="footer">
+		<div class="container">
+			<div class="footer-text">
+				<div class="col-md-6 footer-left">
+					<ul>
+						<li><a href="#"><i class="fa fa-facebook-square fa-4x" style="color:#ca5490"></i></a></li>
+						<li><a href="#"><i class="fa  fa-tumblr-square fa-4x" style="color:#ca5490"></i></a></li>
+						<li><a href="#"><i class="fa  fa-google-plus-square fa-4x" style="color:#ca5490"></i></a></li>
+						<li><a href="#"><i class="fa  fa-linkedin-square fa-4x" style="color:#ca5490"></i></a></li>
+					</ul>
+				</div>
+				<div class="col-md-6 footer-left">
+					<p>Copyright © 2009-2015 Laborelief. All Rights Reserved. <a target="_blank" href="#"></a></p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<a href="#home" id="toTop" class="scroll" style="display: none;"><span id="toTopHover"></span> <span id="toTopHover" style="opacity: 1;"> </span></a>
+	</div>
+	<!--footer-end-->					 
+
+<a href="#" id="toTop">To Top</a>
+</div>
+
+<script>
+var isMobile = { 
+		Android: function() { return navigator.userAgent.match(/Android/i); }, 
+		BlackBerry: function() { return navigator.userAgent.match(/BlackBerry/i); }, 
+		iOS: function() { return navigator.userAgent.match(/iPhone|iPad|iPod/i); }, 
+		Opera: function() { return navigator.userAgent.match(/Opera Mini/i); }, 
+		Windows: function() { return navigator.userAgent.match(/IEMobile/i); }, 
+		any: function() { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()); } };
+var app = angular.module('myApp', ["uuids","ngSanitize"]);
+app.controller('customersCtrl', function($scope, $http, $sce,rfc4122) {
+	$scope.id = rfc4122.newuuid();
+	$scope.nowTime = new Date().valueOf();
+	console.log("time:"+$scope.nowTime)
+	$scope.count = 1
+	$scope.goodinfos = []
+	
+		$http.get("http://127.0.0.1:9092/goods/").success(
+				function(data, status, headers, config) {
+					var good = {
+						"id" : "default",
+						"desc" : "",
+						"fee" : 0
+					};
+					len = data.length
+					for (var i = 0; i < len; i++) {
+						good.id = data[i].id
+						good.desc = data[i].desc
+						good.fee = data[i].fee
+						$scope.goodinfos[i] = angular.copy(good)
+					}
+				});
+	
+	    $scope.selectPayType = function(){
+	    	$('#new_dialog').modal('show');
+	    }
+
+		$scope.newOrder = function() {
+
+			var order_data = {
+				"id" : "default",
+				"goodid" : "1",
+				"goodcount" : 0,
+				"desc" : "Test order",
+				"custel" : 0,
+				"cusaddr" : "",
+				"cusname" : ""
+			};
+			order_data.id = $scope.id;
+			order_data.cusname = $scope.name
+			order_data.cusaddr = $scope.addr
+			order_data.custel = parseInt($scope.tel)
+			order_data.goodcount = parseInt($scope.count)
+			order_data.goodid = $scope.goodid
+
+			console.log("<<<<<<<<<<<<<<<<<<<<<<")
+			console.log(order_data)
+			//console.log("http://127.0.0.1:9092/order/alipay/" + $scope.type)
+			console.log("<<<<<<<<<<<<<<<<<<<<<<")
+			
+			jQuery(function($) {
+			    if (!isMobile.any()) {
+				    console.log("This is pc")
+				    $scope.type = 1 //pc
+			    }
+			    else if (isMobile.any()) {
+				    console.log("This is not pc")
+				    $scope.type = 2//mobile
+			    }
+		    });
+				
+			url = "http://127.0.0.1:9092/order/alipay/"
+			
+
+	if ($scope.alipaytype == "directPay") {
+		url = url + $scope.type
+			} else {
+				url = url +$scope.alipaytype
+			}
+			console.log(url)
+
+ 			$http.post(url,
+					JSON.stringify(order_data)).success(
+					function(data, status, headers, config) {
+						//$scope.test = $sce.trustAsHtml("<h1>TEST2</h1>");
+						$scope.trusthtml = $sce.trustAsHtml(data.html);
+						$scope.trustscript = $sce.trustAsJs(data.script);
+					}); 
+		};
+	});
+</script>
+</body>
+</html>

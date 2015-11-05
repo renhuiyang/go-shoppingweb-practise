@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Laborelief</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="../../Laborelief_files/bootstrap.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../../font-awesome/css/font-awesome.css"> 
+<link href="../../Laborelief_files/style.css" rel="stylesheet" type="text/css">
+<script src="../../Laborelief_files/jquery-1.js"></script> 
+<!---- start-smoth-scrolling---->
+<script type="text/javascript" src="../../Laborelief_files/move-top.js"></script>
+<script type="text/javascript" src="../../Laborelief_files/easing.js"></script>
+<script src= "../../js/angular.js"></script>
+<script src= "../../js/angular-uuid.js"></script>
+<script src= "../../js/angular-sanitize.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+        });
+    });
+		</script> 
+</head>
+<body>
+<!--start-header-->
+	<div class="header" id="home">
+		<div class="container">
+			<div class="head">
+			<div class="logo">
+				<a href="http://54.90.43.223:9092"><img src="../../Laborelief_files/logo.png" alt=""></a>
+			</div>
+			<div class="navigation">
+				  <span class="menu fa fa-reorder fa-1x" id="none"></span> 
+					<ul class="navig">
+						<li><a href="http://54.90.43.223:9092/"> 主页</a>&nbsp;</li>
+						<li><i class="fa fa-flask fa-1x"> </i><a href="http://54.90.43.223:9092/#Advantages">特点</a>&nbsp;</li>
+						<li><i class="fa fa-male fa-1x"> </i> <a href="http://54.90.43.223:9092/#Howitworks">工作原理</a>&nbsp;</li>  
+						<li><i class="fa  fa-question-circle fa-1x"> </i><a href="http://54.90.43.223:9092/#FAQS">FAQS</a>&nbsp;</li>
+						<li><i class="fa  fa-gear fa-1x"> </i><a href="http://54.90.43.223:9092/#Science">技术说明</a>&nbsp;</li>
+						<li><i class="fa fa-stethoscope fa-1x"> </i><a href="http://54.90.43.223:9092/#Testimonials">用户评价</a>&nbsp;</li>
+						<li><i class="fa fa-mobile fa-1x"> </i><a href="http://54.90.43.223:9092/#AsktheMidwife">助产士问答</a>&nbsp;</li>
+						<li><i class="fa fa-envelope-o fa-1x"> </i><a href="http://54.90.43.223:9092/#Contact">联系我们</a>&nbsp;</li>
+						<li><i class="fa  fa-shopping-cart fa-1x"> </i><a href="http://54.90.43.223:9092/buy.html" class="active">购买</a>&nbsp;</li>
+					</ul>
+			</div>
+				<div class="clearfix"></div>
+			</div> 
+			</div>
+		</div>	
+ <script>
+     $("span.menu").click(function () {
+         $(" ul.navig").slideToggle("slow", function () {
+         });
+     });
+		 </script> 
+					<script src="../../Laborelief_files/classie.js"></script>
+					<script src="../../Laborelief_files/uisearch.js"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+	<!--//search-scripts-->
+	<!--start-single-->
+	<div class="single">
+		<div class="container">
+		    {{if .Result}}
+		    <p class="lead">支付成功</p>
+		           <div class="well page col-md-12">
+					<table id="table"
+						class="table table-bordred table-striped animate-repeat">
+						<thead>
+							<tr>
+								<th style="width: 10%" align="center" class="text-center">订单号</th>
+								<th style="width: 5%" align="center" class="text-center">商品类型</th>
+								<th style="width: 5%" align="center" class="text-center">数量</th>
+								<th style="width: 10%" align="center" class="text-center">客户电话</th>
+								<th style="width: 10%" align="center" class="text-center">客户名</th>
+								<th style="width: 30%" align="center" class="text-center">客户地址</th>
+								<th style="width: 10%" align="center" class="text-center">支付金额</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="text-center">{{.OrderId}}</td>
+								<td class="text-center">{{.GoodId}}</td>
+								<td class="text-center">{{.GoodCnt}}</td>
+								<td class="text-center">{{.Tel}}</td>
+								<td class="text-center">{{.Name}}</td>
+								<td class="text-center">{{.Addr}}</td>
+								<td class="text-center">{{.Sum}}元</td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+					{{else}}
+		    <p class="lead">支付失败</p>
+		    {{end}}
+		</div>
+	</div> 
+	<!--contact-end-->
+	<!--footer-starts--> 
+	<div class="footer">
+		<div class="container">
+			<div class="footer-text">
+				<div class="col-md-6 footer-left">
+					<ul>
+						<li><a href="#"><i class="fa fa-facebook-square fa-4x" style="color:#ca5490"></i></a></li>
+						<li><a href="#"><i class="fa  fa-tumblr-square fa-4x" style="color:#ca5490"></i></a></li>
+						<li><a href="#"><i class="fa  fa-google-plus-square fa-4x" style="color:#ca5490"></i></a></li>
+						<li><a href="#"><i class="fa  fa-linkedin-square fa-4x" style="color:#ca5490"></i></a></li>
+					</ul>
+				</div>
+				<div class="col-md-6 footer-left">
+					<p>Copyright © 2009-2015 Laborelief. All Rights Reserved. <a target="_blank" href="#"></a></p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<script type="text/javascript">
+		    $(document).ready(function () {
+		        /*
+		        var defaults = {
+		        containerID: 'toTop', // fading element id
+		        containerHoverID: 'toTopHover', // fading element hover id
+		        scrollSpeed: 1200,
+		        easingType: 'linear' 
+		        };
+		        */
+
+		        $().UItoTop({ easingType: 'easeOutQuart' });
+
+		    });
+								</script>
+		<a href="#home" id="toTop" class="scroll" style="display: none;"><span id="toTopHover"></span> <span id="toTopHover" style="opacity: 1;"> </span></a>
+	</div>
+	<!--footer-end-->					 
+
+<a href="#" id="toTop">To Top</a>
+</div>
+
+<script>
+var app = angular.module('myApp', ["uuids","ngSanitize"]);
+app.controller('customersCtrl', function($scope, $http, $sce,rfc4122) {
+	$scope.id = rfc4122.newuuid();
+	$scope.count = 1
+	$scope.test = $sce.trustAsHtml("<h1>TEST</h1>");
+	console.log($scope.id)
+	$scope.newOrder = function (){
+		
+	    var order_data =
+	    {
+	        "id": "default",
+	        "goodid": "1",
+	        "goodcount": 0,
+	        "desc": "Test order",
+	        "custel": 0,
+	        "cusaddr":"",
+	        "cusname":""
+	    };
+	    order_data.id = $scope.id;
+	    order_data.cusname = $scope.name
+	    order_data.cusaddr = $scope.addr
+	    order_data.custel  = parseInt($scope.tel)
+	    order_data.goodcount = parseInt($scope.count)
+	    
+	    console.log("<<<<<<<<<<<<<<<<<<<<<<")
+	    console.log(order_data)
+	    console.log("<<<<<<<<<<<<<<<<<<<<<<")
+	    
+	    $http.post("http://54.90.43.223:9092/order",JSON.stringify(order_data))
+	    .success(function (data, status, headers, config){
+	    	//$scope.test = $sce.trustAsHtml("<h1>TEST2</h1>");
+	    	$scope.trusthtml = $sce.trustAsHtml(data.html);
+	    	$scope.trustscript = $sce.trustAsJs(data.script);
+	    });
+	};
+});
+</script>
+</body>
+</html>
